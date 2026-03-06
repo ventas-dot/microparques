@@ -86,6 +86,7 @@ nav.scrolled {
   flex-direction: column;
   justify-content: flex-end;
   overflow: hidden;
+  padding-bottom: 40px;
 }
 
 .hero-bg {
@@ -710,6 +711,59 @@ h1 em {
   font-size: .72rem;
   color: var(--gris);
   line-height: 1.5;
+}
+
+/* ── HERO ALIADOS STRIP ── */
+.hero-aliados {
+  position: relative;
+  z-index: 2;
+  margin: 0 48px;
+  padding: 24px 32px;
+  background: rgba(15,26,12,.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(184,245,66,.18);
+  border-radius: 16px;
+}
+.hero-aliados-label {
+  font-size: .58rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--lima);
+  margin-bottom: 16px;
+}
+.hero-aliados-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.hero-aliados-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hero-aliados-cat {
+  font-size: .54rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: rgba(184,245,66,.6);
+  margin-bottom: 4px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(184,245,66,.15);
+}
+.hero-aliados-tag {
+  font-size: .72rem;
+  color: rgba(244,241,235,.8);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 6px;
+  padding: 5px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 768px) {
+  .hero-aliados { margin: 0 20px; padding: 20px; }
+  .hero-aliados-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
 }
 
 /* ── PARTNERS ── */
