@@ -1,5 +1,4 @@
-﻿<style>
-:root {
+﻿:root {
   --lima:   #b8f542;
   --oscuro: #0f1a0c;
   --verde:  #1a3a1e;
@@ -1272,6 +1271,159 @@ footer {
 .form-success p {
   color: var(--lima);
   font-size: .95rem;
+}
+
+/* ── NOSOTROS ── */
+.nosotros-section {
+  background: var(--oscuro);
+  padding: 100px 48px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.nosotros-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.3fr;
+  gap: 80px; align-items: center;
+}
+.nosotros-img { position: relative; }
+.nosotros-img img {
+  width: 100%; border-radius: 20px;
+  object-fit: cover; aspect-ratio: 4/3; display: block;
+}
+.nosotros-img-badge {
+  position: absolute; bottom: 16px; left: 16px;
+  background: var(--lima); color: var(--oscuro);
+  font-size: .65rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  padding: 5px 14px; border-radius: 100px;
+}
+.nosotros-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.nosotros-pill {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 100px; padding: 6px 14px;
+  font-size: .75rem; color: rgba(244,241,235,.8);
+}
+@media (max-width: 900px) {
+  .nosotros-section { padding: 60px 20px; }
+  .nosotros-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ── ReFi TAG ── */
+.refi-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(184,245,66,.12);
+  border: 1px solid rgba(184,245,66,.3);
+  color: #6aaf38;
+  border-radius: 100px;
+  padding: 5px 13px;
+  font-size: .65rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ── INSTITUTIONS GRID ── */
+.inst-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin: 48px 0 56px;
+  text-align: left;
+}
+.inst-col-label {
+  font-size: .58rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--gris);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #dedad2;
+}
+.inst-tag {
+  background: #f0ede6;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: .78rem;
+  font-weight: 500;
+  color: #2a2a2a;
+  margin-bottom: 8px;
+  transition: all .2s;
+  cursor: default;
+  display: block;
+}
+.inst-tag:hover { background: var(--lima); color: var(--oscuro); }
+
+/* ── ReFi COUNTER ── */
+.refi-counter {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 36px 40px;
+  border: 1px solid #d0d0c8;
+  border-radius: 20px;
+  background: #f8f5ef;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.refi-live {
+  display: flex; align-items: center; gap: 7px;
+  font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gris);
+}
+.refi-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #2ecc71; animation: blink 2s infinite;
+}
+.refi-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: 3.5rem; color: var(--oscuro); line-height: 1;
+}
+.refi-label { font-size: .82rem; color: #555; }
+.refi-badge {
+  font-size: .62rem; text-transform: uppercase; letter-spacing: .1em;
+  background: rgba(26,58,30,.1); color: var(--verde);
+  padding: 4px 14px; border-radius: 100px; margin-top: 4px;
+}
+
+/* ── MONITOR SECTION ── */
+.monitor-section {
+  background: var(--verde);
+  padding: 100px 48px;
+}
+.monitor-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 80px; align-items: start;
+}
+.monitor-left h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: var(--blanco); line-height: 1.15; margin-bottom: 16px;
+}
+.monitor-left h2 em { font-style: italic; color: var(--lima); }
+.monitor-left p {
+  font-size: .88rem; color: rgba(244,241,235,.65);
+  line-height: 1.7; margin-bottom: 32px;
+}
+.monitor-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+.monitor-stat-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2.4rem; color: var(--lima); line-height: 1;
+}
+.monitor-stat-lbl {
+  font-size: .68rem; color: rgba(244,241,235,.5); margin-top: 4px; line-height: 1.4;
+}
+.monitor-form {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 20px; padding: 36px;
+}
+.monitor-form h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.3rem; color: var(--blanco); margin-bottom: 6px;
+}
+
+@media (max-width: 900px) {
+  .inst-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .monitor-section { padding: 60px 20px; }
+  .monitor-inner { grid-template-columns: 1fr; gap: 40px; }
 }
 
 @media (max-width: 860px) {

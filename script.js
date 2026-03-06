@@ -266,3 +266,56 @@ document.querySelectorAll('.tab-pill').forEach(function(btn) {
     btn.classList.add('active');
   });
 });
+
+// ══ CONTADOR ANIMADO ══
+function animateCount(el, target, duration) {
+  if (!el) return;
+  var start = 0, step = Math.ceil(duration / target);
+  var timer = setInterval(function() {
+    start += Math.ceil(target / 80);
+    if (start >= target) { start = target; clearInterval(timer); }
+    el.textContent = start.toLocaleString('es-AR');
+  }, step);
+}
+
+// Dispara el contador cuando los elementos entran en pantalla
+var txnEl = document.getElementById('txn-count');
+var obsEl = document.getElementById('obs-count');
+var counted = { txn: false, obs: false };
+
+var countObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      if (e.target.id === 'txn-count' && !counted.txn) {
+        counted.txn = true;
+        animateCount(txnEl, 1247, 1800);
+      }
+      if (e.target.id === 'obs-count' && !counted.obs) {
+        counted.obs = true;
+        animateCount(obsEl, 38, 1200);
+      }
+    }
+  });
+}, { threshold: 0.5 });
+
+if (txnEl) countObserver.observe(txnEl);
+if (obsEl) countObserver.observe(obsEl);
+
+// ══ FORMULARIO DE MONITOREO ══
+var monitorForm = document.getElementById('monitor-form');
+if (monitorForm) {
+  monitorForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var data = new FormData(monitorForm);
+    fetch(monitorForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+      .then(function(r) {
+        if (r.ok) {
+          monitorForm.style.display = 'none';
+          document.getElementById('monitor-success').style.display = 'block';
+        }
+      })
+      .catch(function() {
+        alert('Error al enviar. Intentá de nuevo.');
+      });
+  });
+}
