@@ -77,7 +77,7 @@ nav.scrolled {
   position: absolute; inset: 0;
   background:
     linear-gradient(to bottom, rgba(15,26,12,.35) 0%, rgba(15,26,12,.1) 40%, rgba(15,26,12,.8) 85%, var(--oscuro) 100%),
-    url('https://images.unsplash.com/photo-1587578855933-de8a845b7ef4?w=1800&q=80') center/cover no-repeat;
+    url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1800&q=80') center/cover no-repeat; /* REEMPLAZAR: buscar en unsplash.com/s/photos/urban-park y copiar el ID de la foto */
   transform: scale(1.04);
   animation: heroZoom 12s ease-out forwards;
 }
@@ -406,9 +406,59 @@ h1 em { font-style: italic; color: var(--lima); }
 .detail-modal.open { display: flex; }
 .dm-card {
   background: var(--oscuro); border: 1px solid rgba(255,255,255,.1);
-  border-radius: 24px; padding: 40px;
+  border-radius: 24px; padding: 0;
   max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto;
 }
+.dm-hero {
+  height: 120px; background: linear-gradient(135deg, var(--verde), #2d6a3a);
+  border-radius: 24px 24px 0 0; display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; position: relative;
+}
+.dm-close {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(0,0,0,.3); border: none; color: white;
+  width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+  font-size: .9rem; display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+}
+.dm-close:hover { background: rgba(0,0,0,.6); }
+.dm-body { padding: 28px 32px 32px; }
+.dm-badge { margin-bottom: 10px; }
+.dm-name { font-family: 'Instrument Serif', serif; font-size: 1.8rem; font-weight: 400; line-height: 1.1; margin-bottom: 6px; }
+.dm-loc { font-size: .8rem; color: rgba(244,241,235,.6); margin-bottom: 4px; }
+.dm-desc { font-size: .84rem; color: rgba(244,241,235,.7); line-height: 1.65; margin-bottom: 20px; }
+.dm-prog-bar { height: 6px; background: rgba(255,255,255,.1); border-radius: 100px; overflow: hidden; margin-bottom: 6px; }
+.dm-prog-fill { height: 100%; background: var(--lima); border-radius: 100px; }
+.dm-prog-label { display: flex; justify-content: space-between; font-size: .7rem; color: var(--gris); margin-bottom: 24px; }
+.dm-sec { font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; color: var(--lima); margin-bottom: 10px; margin-top: 20px; padding-bottom: 6px; border-bottom: 1px solid rgba(184,245,66,.15); }
+.dm-species { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+.dm-sp { background: rgba(184,245,66,.08); border: 1px solid rgba(184,245,66,.2); border-radius: 100px; padding: 4px 12px; font-size: .72rem; color: rgba(244,241,235,.85); }
+.dm-actors { display: flex; flex-direction: column; gap: 10px; }
+.dm-actor { display: flex; justify-content: space-between; align-items: center; font-size: .82rem; padding: 10px 14px; background: rgba(255,255,255,.04); border-radius: 8px; }
+.dm-key { font-size: .68rem; text-transform: uppercase; letter-spacing: .07em; color: var(--gris); }
+
+/* ── MAPA POPUP (Leaflet) ── */
+.popup-box { font-family: 'DM Sans', sans-serif; min-width: 220px; }
+.popup-name { font-family: 'Instrument Serif', serif; font-size: 1rem; font-weight: 400; color: #0f1a0c; }
+.popup-loc { font-size: .7rem; color: #5a7a5e; margin-bottom: 6px; }
+.popup-row { display: flex; gap: 12px; margin-bottom: 12px; }
+.popup-cell { flex: 1; text-align: center; background: rgba(15,26,12,.06); border-radius: 8px; padding: 8px; }
+.popup-val { font-family: 'Instrument Serif', serif; font-size: 1.2rem; color: #0f1a0c; line-height: 1; }
+.popup-lbl { font-size: .6rem; text-transform: uppercase; letter-spacing: .06em; color: #8a9e8f; margin-top: 2px; }
+.popup-btn { width: 100%; background: #0f1a0c; color: #b8f542; border: none; padding: 9px; border-radius: 8px; font-size: .76rem; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: opacity .2s; }
+.popup-btn:hover { opacity: .82; }
+.pp-badge { display: inline-block; padding: 2px 10px; border-radius: 100px; font-size: .6rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.b-plan  { background: rgba(138,158,143,.2); color: #8a9e8f; }
+.b-ejec  { background: rgba(184,245,66,.15); color: #b8f542; }
+.b-fin   { background: rgba(110,201,122,.15); color: #6ec97a; }
+
+/* ── PARQUE PANEL LISTA ── */
+.pp-item.active { background: rgba(184,245,66,.07); }
+.pp-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; margin-bottom: 3px; }
+.pp-name { font-size: .84rem; font-weight: 500; flex: 1; }
+.pp-meta { font-size: .72rem; color: var(--gris); margin-top: 2px; }
+.pp-prog { height: 4px; background: rgba(255,255,255,.08); border-radius: 100px; overflow: hidden; margin-top: 8px; }
+.pp-prog-fill { height: 100%; background: var(--lima); border-radius: 100px; }
 
 /* ── IMPACTO ── */
 .impact { background: var(--oscuro); padding: 120px 48px; }
