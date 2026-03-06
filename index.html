@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -24,6 +24,7 @@
     <li><a href="#vision">Visión</a></li>
     <li><a href="#planificacion">Planificación</a></li>
     <li><a href="#fases">Metodología</a></li>
+    <li><a href="monitoreo.html">Monitoreo</a></li>
     <li><a href="#contacto" class="nav-cta" style="display:inline-block">Sumate</a></li>
   </ul>
 </nav>
@@ -92,16 +93,6 @@
     </div>
   </div>
 
-  <!-- ReFi counter -->
-  <div class="refi-counter reveal">
-    <div class="refi-live">
-      <div class="refi-dot"></div>
-      <span>Red activa</span>
-    </div>
-    <div class="refi-num" id="txn-count">0</div>
-    <div class="refi-label">transacciones verificadas en red</div>
-    <div class="refi-badge">Impacto tokenizado · ReFi AMBA · On-chain</div>
-  </div>
 </section>
 
 <!-- ── ABOUT ── -->
@@ -405,80 +396,6 @@
   </div>
 </section>
 
-<!-- ── MONITOREO ── -->
-<section class="monitor-section" id="monitoreo">
-  <div class="monitor-inner">
-    <div class="monitor-left reveal">
-      <div class="phases-eyebrow">Red de datos de campo</div>
-      <h2>Captación <em>constante</em><br>de métricas</h2>
-      <p>Cada referente registra observaciones desde su parque. Los datos alimentan nuestra red, quedan disponibles para la comunidad científica y se vinculan a la cadena de verificación ReFi.</p>
-      <div class="monitor-stats">
-        <div class="monitor-stat">
-          <div class="monitor-stat-num" id="obs-count">0</div>
-          <div class="monitor-stat-lbl">Observaciones<br>registradas</div>
-        </div>
-        <div class="monitor-stat">
-          <div class="monitor-stat-num">5</div>
-          <div class="monitor-stat-lbl">Parques<br>monitoreados</div>
-        </div>
-        <div class="monitor-stat">
-          <div class="monitor-stat-num">∞</div>
-          <div class="monitor-stat-lbl">Datos<br>abiertos</div>
-        </div>
-      </div>
-    </div>
-
-    <form class="monitor-form reveal" id="monitor-form" action="https://formspree.io/f/REEMPLAZAR_CON_TU_ID" method="POST">
-      <h3>Nueva observación de campo</h3>
-      <p class="form-sub">Completá los datos de tu visita al parque</p>
-      <div id="monitor-success" class="form-success" style="display:none">
-        <div class="check">✅</div>
-        <p>¡Observación registrada! Gracias por contribuir a la red.</p>
-      </div>
-      <div class="form-group">
-        <label>Parque *</label>
-        <select name="parque" required>
-          <option value="">Seleccioná un parque...</option>
-          <option>MP Béccar — San Isidro</option>
-          <option>MP Pablo Podestá — Tres de Febrero</option>
-          <option>MP Ribera Budge — Lomas de Zamora</option>
-          <option>MP Temperley Norte — Lomas de Zamora</option>
-          <option>MP Temperley Centro — Lomas de Zamora</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Fecha *</label>
-          <input type="date" name="fecha" required>
-        </div>
-        <div class="form-group">
-          <label>Referente *</label>
-          <input type="text" name="referente" placeholder="Tu nombre" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Árboles contados</label>
-          <input type="number" name="arboles" placeholder="0" min="0">
-        </div>
-        <div class="form-group">
-          <label>m² vegetación</label>
-          <input type="number" name="m2" placeholder="0" min="0">
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Especies observadas</label>
-        <input type="text" name="especies" placeholder="Ej: Tala, Espinillo, Cardenal...">
-      </div>
-      <div class="form-group">
-        <label>Notas del relevamiento</label>
-        <textarea name="notas" placeholder="Estado del parque, polinizadores, incidentes, comunidad..." style="height:80px"></textarea>
-      </div>
-      <button type="submit" class="form-submit">Registrar observación →</button>
-    </form>
-  </div>
-</section>
-
 <!-- ── CTA ── -->
 <section class="cta-section" id="contacto">
   <h2 class="cta-title reveal">¿Querés ser parte<br>de la <em>red</em>?</h2>
@@ -533,10 +450,38 @@
       <div style="margin-top:40px;padding:24px;background:rgba(184,245,66,.08);border:1px solid rgba(184,245,66,.2);border-radius:16px">
         <div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--lima);margin-bottom:8px">Apoyá el proyecto</div>
         <p style="font-size:.82rem;color:rgba(244,241,235,.7);margin-bottom:16px;line-height:1.55">Cada donación ayuda a transformar más espacios degradados en pulmones verdes para el AMBA.</p>
-        <a href="https://link.mercadopago.com.ar/donacionmicroparque" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#009EE3;color:white;padding:12px 24px;border-radius:100px;font-size:.82rem;font-weight:700;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'">
-          <svg width="20" height="20" viewBox="0 0 32 32" fill="white"><path d="M27.3 8.7C26 7.1 23.6 6.3 20.3 6.3H10.7c-.6 0-1.1.4-1.2 1L6.6 22.2c-.1.4.2.8.6.8h4.4l1.1-7 0 .2c.1-.6.6-1 1.2-1h2.5c4.9 0 8.7-2 9.8-7.7 0-.2.1-.4.1-.6-.1 0-.1 0 0 0 .3-1.2 0-2.1-.9-3.2z"/><path d="M13.4 9.5c.2-.1.4-.2.6-.2h7.8c.9 0 1.8.1 2.5.3.2.1.4.1.6.2.2.1.4.2.5.3.1 0 .1.1.2.1.3-2.1 0-3.5-1.1-4.8C23.2 3.9 20.7 3 17.4 3H7.8c-.6 0-1.2.5-1.3 1.1L3.1 23.4c-.1.5.3.9.8.9H8l1.2-7.6 1.5-9.4c.1-.4.4-.7.7-.8z"/></svg>
-          Donar con Mercado Pago
-        </a>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <!-- Mercado Pago -->
+          <a href="https://link.mercadopago.com.ar/donacionmicroparque" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#009EE3;color:white;padding:11px 20px;border-radius:100px;font-size:.78rem;font-weight:700;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'">
+            <svg width="18" height="18" viewBox="0 0 32 32" fill="white"><path d="M27.3 8.7C26 7.1 23.6 6.3 20.3 6.3H10.7c-.6 0-1.1.4-1.2 1L6.6 22.2c-.1.4.2.8.6.8h4.4l1.1-7 0 .2c.1-.6.6-1 1.2-1h2.5c4.9 0 8.7-2 9.8-7.7 0-.2.1-.4.1-.6-.1 0-.1 0 0 0 .3-1.2 0-2.1-.9-3.2z"/><path d="M13.4 9.5c.2-.1.4-.2.6-.2h7.8c.9 0 1.8.1 2.5.3.2.1.4.1.6.2.2.1.4.2.5.3.1 0 .1.1.2.1.3-2.1 0-3.5-1.1-4.8C23.2 3.9 20.7 3 17.4 3H7.8c-.6 0-1.2.5-1.3 1.1L3.1 23.4c-.1.5.3.9.8.9H8l1.2-7.6 1.5-9.4c.1-.4.4-.7.7-.8z"/></svg>
+            Mercado Pago
+          </a>
+          <!-- PayPal -->
+          <a href="https://www.paypal.com/donate?business=hplautaromartinez@gmail.com" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#003087;color:white;padding:11px 20px;border-radius:100px;font-size:.78rem;font-weight:700;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M7.144 19.532l1.049-5.751c.11-.606.691-1.002 1.304-.948 2.155.192 6.877.1 8.818-4.002 1.498-3.184.854-5.403-.62-6.751C16.086.48 13.bugfix 0 11 0H4.187C3.639 0 3.17.401 3.078.942L.02 18.351a.75.75 0 0 0 .74.884h4.7l.684-3.703zM20.734 7.62c-.688 4.638-3.692 7.546-9.413 7.546H9.264l-1.05 5.765a.752.752 0 0 0 .74.884h3.694c.548 0 1.017-.401 1.109-.942l.757-4.154c.11-.606.691-1.002 1.304-.948 0 0 3.868.1 5.809-3.002.873-1.404 1.07-3.149.107-5.149z"/></svg>
+            PayPal
+          </a>
+          <!-- USDC Crypto -->
+          <button onclick="document.getElementById('usdc-modal').style.display='flex'" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:white;padding:11px 20px;border-radius:100px;font-size:.78rem;font-weight:700;cursor:pointer;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.15)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            USDC Crypto
+          </button>
+        </div>
+      </div>
+
+      <!-- USDC Modal -->
+      <div id="usdc-modal" onclick="if(event.target===this)this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1000;align-items:center;justify-content:center">
+        <div style="background:#0f1a0c;border:1px solid rgba(184,245,66,.3);border-radius:20px;padding:40px;max-width:400px;width:90%;text-align:center">
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--lima);margin-bottom:12px">Donación en USDC</div>
+          <h3 style="font-family:'Instrument Serif',serif;font-size:1.4rem;font-weight:400;margin-bottom:8px">Enviá USDC a esta wallet</h3>
+          <p style="font-size:.78rem;color:rgba(244,241,235,.6);margin-bottom:20px">Red: Ethereum / Polygon / Celo</p>
+          <div style="background:rgba(184,245,66,.08);border:1px solid rgba(184,245,66,.2);border-radius:12px;padding:16px;margin-bottom:20px">
+            <code style="font-size:.72rem;color:var(--lima);word-break:break-all;line-height:1.6">0x1495754391aF37F145a950C787D06DA5c1FC10b2</code>
+          </div>
+          <button onclick="navigator.clipboard.writeText('0x1495754391aF37F145a950C787D06DA5c1FC10b2');this.textContent='¡Copiado!';setTimeout(()=>this.textContent='Copiar dirección',2000)" style="background:var(--lima);color:var(--oscuro);border:none;padding:10px 24px;border-radius:100px;font-size:.8rem;font-weight:700;cursor:pointer;margin-bottom:12px">Copiar dirección</button>
+          <br>
+          <button onclick="document.getElementById('usdc-modal').style.display='none'" style="background:none;border:none;color:var(--gris);font-size:.78rem;cursor:pointer;text-decoration:underline">Cerrar</button>
+        </div>
       </div>
     </div>
 
