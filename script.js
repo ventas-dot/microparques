@@ -319,3 +319,73 @@ if (monitorForm) {
       });
   });
 }
+
+// ══ METAMASK WALLET ══
+// IMPORTANTE: Reemplazá esta dirección con la wallet ETH del proyecto
+var ETH_WALLET_DESTINO = '0xTU_WALLET_ETH_AQUI';
+
+function pagarConMetaMask() {
+  var modal = document.getElementById('metamask-modal');
+  modal.style.display = 'flex';
+  mostrarPaso('mm-step-connect');
+}
+
+function cerrarModalMetaMask() {
+  document.getElementById('metamask-modal').style.display = 'none';
+}
+
+function mostrarPaso(paso) {
+  var pasos = ['mm-step-connect', 'mm-step-amount', 'mm-step-success', 'mm-step-error'];
+  pasos.forEach(function(p) {
+    document.getElementById(p).style.display = p === paso ? 'block' : 'none';
+  });
+}
+
+function conectarMetaMask() {
+  if (typeof window.ethereum === 'undefined') {
+    window.open('https://metamask.io/download/', '_blank');
+    return;
+  }
+  window.ethereum.request({ method: 'eth_requestAccounts' })
+    .then(function(cuentas) {
+      document.getElementById('mm-address').textContent = cuentas[0];
+      mostrarPaso('mm-step-amount');
+    })
+    .catch(function(err) {
+      document.getElementById('mm-error-msg').textContent = err.message || 'No se pudo conectar MetaMask.';
+      mostrarPaso('mm-step-error');
+      document.getElementById('mm-step-error').querySelector('button').onclick = function() { mostrarPaso('mm-step-connect'); };
+    });
+}
+
+function enviarETH() {
+  var monto = parseFloat(document.getElementById('mm-amount').value);
+  if (!monto || monto <= 0) {
+    alert('Ingresá un monto válido.');
+    return;
+  }
+  var montoHex = '0x' + Math.floor(monto * 1e18).toString(16);
+  window.ethereum.request({ method: 'eth_accounts' })
+    .then(function(cuentas) {
+      return window.ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [{ from: cuentas[0], to: ETH_WALLET_DESTINO, value: montoHex }]
+      });
+    })
+    .then(function(txHash) {
+      mostrarPaso('mm-step-success');
+      var link = document.getElementById('mm-tx-link');
+      link.innerHTML = '<a href="https://etherscan.io/tx/' + txHash + '" target="_blank" style="color:#F6851B;font-size:.75rem;word-break:break-all">Ver transacción en Etherscan</a>';
+    })
+    .catch(function(err) {
+      document.getElementById('mm-error-msg').textContent = err.message || 'La transacción fue rechazada.';
+      mostrarPaso('mm-step-error');
+      document.getElementById('mm-step-error').querySelector('button').onclick = function() { mostrarPaso('mm-step-amount'); };
+    });
+}
+
+// Cerrar modal al clickear fuera
+document.addEventListener('click', function(e) {
+  var modal = document.getElementById('metamask-modal');
+  if (modal && e.target === modal) cerrarModalMetaMask();
+});
