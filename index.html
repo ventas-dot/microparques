@@ -322,8 +322,10 @@
       <h3>Envianos tu consulta</h3>
       <p class="form-sub">Un referente del equipo te responderá a la brevedad</p>
       <div id="form-success" class="form-success" style="display:none"><div class="check">✅</div><p>¡Mensaje enviado! Te respondemos pronto.</p></div>
-      <form id="contact-form" action="https://formspree.io/f/myknyvya" method="POST">
-        <input type="hidden" name="_subject" value="Consulta Red de Micro Parques">
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="1a953a97-7200-4c4b-b9af-5ffab80c4cdb">
+        <input type="hidden" name="subject" value="Consulta Red de Micro Parques">
+        <input type="hidden" name="redirect" value="false">
         <div class="form-row">
           <div class="form-group"><label>Nombre *</label><input type="text" name="nombre" placeholder="Tu nombre" required></div>
           <div class="form-group"><label>Organización</label><input type="text" name="organizacion" placeholder="Municipio, empresa, ONG..."></div>
