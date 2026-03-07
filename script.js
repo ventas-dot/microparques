@@ -253,6 +253,16 @@ window.addEventListener('scroll', function() {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
 });
 
+// ══ MENÚ MOBILE ══
+window.toggleMenu = function() {
+  document.getElementById('nav-links').classList.toggle('open');
+  document.getElementById('nav-burger').classList.toggle('open');
+};
+window.closeMenu = function() {
+  document.getElementById('nav-links').classList.remove('open');
+  document.getElementById('nav-burger').classList.remove('open');
+};
+
 // ══ SCROLL REVEAL ══
 const observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
