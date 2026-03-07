@@ -4,7 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Red de Micro Parques — Naturaleza nativa para transformar la ciudad</title>
-<meta name="description" content="Red de micro-intervenciones verdes que recuperan espacios degradados, aumentan la biodiversidad y generan encuentro comunitario. Un proyecto de Jóvenes por el Clima y Bosquear.">
+<meta name="description" content="Red de micro-intervenciones verdes que recuperan espacios degradados, aumentan la biodiversidad y generan encuentro comunitario en el Gran Buenos Aires. Un proyecto de Jóvenes por el Clima y Bosquear.">
+<meta name="keywords" content="micro parques, bosques urbanos, biodiversidad, Gran Buenos Aires, naturaleza nativa, RSE, ecología urbana, Jóvenes por el Clima, Bosquear, espacios verdes">
+<meta name="author" content="Jóvenes por el Clima">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ventas-dot.github.io/microparques/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ventas-dot.github.io/microparques/">
+<meta property="og:title" content="Red de Micro Parques — Naturaleza nativa para transformar la ciudad">
+<meta property="og:description" content="Micro-intervenciones verdes que recuperan espacios degradados, aumentan la biodiversidad y generan encuentro comunitario. Jóvenes por el Clima + Bosquear.">
+<meta property="og:image" content="https://ventas-dot.github.io/microparques/img2.jpeg">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Red de Micro Parques">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Red de Micro Parques — Naturaleza nativa para transformar la ciudad">
+<meta name="twitter:description" content="Micro-intervenciones verdes que recuperan espacios degradados y generan biodiversidad urbana. Jóvenes por el Clima + Bosquear.">
+<meta name="twitter:image" content="https://ventas-dot.github.io/microparques/img2.jpeg">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Red de Micro Parques",
+  "description": "Red de micro-intervenciones verdes que recuperan espacios degradados en el Gran Buenos Aires.",
+  "url": "https://ventas-dot.github.io/microparques/",
+  "founder": [{"@type":"Organization","name":"Jóvenes por el Clima"},{"@type":"Organization","name":"Bosquear"}],
+  "areaServed": "Gran Buenos Aires, Argentina",
+  "sameAs": ["https://www.instagram.com/jovenesporelclima/"]
+}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <link rel="stylesheet" href="styles.css">
@@ -17,17 +50,20 @@
     <img src="img1.png" style="width:42px;height:42px;object-fit:contain;border-radius:50%;" alt="Jóvenes por el Clima">
     Red de Micro Parques
   </a>
-  <ul class="nav-links">
-    <li><a href="#proyecto">El proyecto</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#mapa">Mapa</a></li>
-    <li><a href="#impacto">Impacto</a></li>
-    <li><a href="#vision">Visión</a></li>
-    <li><a href="#planificacion">Planificación</a></li>
-    <li><a href="#fases">Metodología</a></li>
-    <li><a href="monitoreo.html">Monitoreo</a></li>
-    <li><a href="#contacto" class="nav-cta" style="display:inline-block">Sumate</a></li>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#proyecto" onclick="closeMenu()">El proyecto</a></li>
+    <li><a href="#nosotros" onclick="closeMenu()">Nosotros</a></li>
+    <li><a href="#mapa" onclick="closeMenu()">Mapa</a></li>
+    <li><a href="#impacto" onclick="closeMenu()">Impacto</a></li>
+    <li><a href="#vision" onclick="closeMenu()">Visión</a></li>
+    <li><a href="#planificacion" onclick="closeMenu()">Planificación</a></li>
+    <li><a href="#fases" onclick="closeMenu()">Metodología</a></li>
+    <li><a href="monitoreo.html" onclick="closeMenu()">Monitoreo</a></li>
+    <li><a href="#contacto" class="nav-cta" style="display:inline-block" onclick="closeMenu()">Sumate</a></li>
   </ul>
+  <button class="nav-burger" id="nav-burger" aria-label="Menú" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -223,17 +259,17 @@
     <p style="color:var(--gris);font-size:.88rem;max-width:520px;margin:14px auto 0;line-height:1.65;">Espacios densos, naturales, vivos. Senderos orgánicos entre vegetación nativa, bancos integrados al paisaje, escala humana y biodiversidad real.</p>
   </div>
   <div class="vision-hero reveal">
-    <img src="img2.jpeg" alt="Render de uso comunitario" class="vision-hero-img">
+    <img src="img2.jpeg" alt="Render de uso comunitario" class="vision-hero-img" loading="lazy">
     <div class="vision-hero-caption">
       <span class="vision-tag">Render conceptual</span>
       <p>Bancos curvos integrados a la vegetación, senderos entre árboles, escala humana y encuentro comunitario</p>
     </div>
   </div>
   <div class="vision-grid">
-    <div class="vision-card reveal"><img src="img3.jpeg" alt="Vista aérea"><div class="vision-card-info"><div class="vision-card-tag">Planta aérea</div><div class="vision-card-desc">Senderos orgánicos, manchones de vegetación densa y espejo de agua</div></div></div>
-    <div class="vision-card reveal"><img src="img4.jpeg" alt="Vista isométrica"><div class="vision-card-info"><div class="vision-card-tag">Vista isométrica</div><div class="vision-card-desc">Diversidad de estratos: árboles altos + arbustos + herbáceas + trepadoras</div></div></div>
-    <div class="vision-card reveal"><img src="img5.jpeg" alt="Paleta vegetal"><div class="vision-card-info"><div class="vision-card-tag">Paleta vegetal</div><div class="vision-card-desc">Modelo con especies etiquetadas — referencia para el diseño de cada sitio</div></div></div>
-    <div class="vision-card reveal"><img src="img6.jpeg" alt="Referencia real"><div class="vision-card-info"><div class="vision-card-tag">Referencia real</div><div class="vision-card-desc">Densidad y textura objetivo: gramíneas, herbáceas y flores nativas conviviendo</div></div></div>
+    <div class="vision-card reveal"><img src="img3.jpeg" alt="Vista aérea" loading="lazy"><div class="vision-card-info"><div class="vision-card-tag">Planta aérea</div><div class="vision-card-desc">Senderos orgánicos, manchones de vegetación densa y espejo de agua</div></div></div>
+    <div class="vision-card reveal"><img src="img4.jpeg" alt="Vista isométrica" loading="lazy"><div class="vision-card-info"><div class="vision-card-tag">Vista isométrica</div><div class="vision-card-desc">Diversidad de estratos: árboles altos + arbustos + herbáceas + trepadoras</div></div></div>
+    <div class="vision-card reveal"><img src="img5.jpeg" alt="Paleta vegetal" loading="lazy"><div class="vision-card-info"><div class="vision-card-tag">Paleta vegetal</div><div class="vision-card-desc">Modelo con especies etiquetadas — referencia para el diseño de cada sitio</div></div></div>
+    <div class="vision-card reveal"><img src="img6.jpeg" alt="Referencia real" loading="lazy"><div class="vision-card-info"><div class="vision-card-tag">Referencia real</div><div class="vision-card-desc">Densidad y textura objetivo: gramíneas, herbáceas y flores nativas conviviendo</div></div></div>
   </div>
 </section>
 
@@ -367,7 +403,7 @@
     <div class="footer-col"><h4>Recursos</h4><ul><li><a href="#">Manual operativo</a></li><li><a href="#">Lista de especies</a></li><li><a href="#">Informes de impacto</a></li><li><a href="#">Prensa</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Red de Micro Parques — Jóvenes por el Clima + Bosquear</span>
+    <span>© 2026 Red de Micro Parques — Jóvenes por el Clima + Bosquear</span>
     <span style="color:var(--lima)">🌿 Naturaleza nativa para transformar la ciudad</span>
   </div>
 </footer>
