@@ -301,6 +301,25 @@ var countObserver = new IntersectionObserver(function(entries) {
 if (txnEl) countObserver.observe(txnEl);
 if (obsEl) countObserver.observe(obsEl);
 
+// ══ FORMULARIO DE CONTACTO ══
+var contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var data = new FormData(contactForm);
+    fetch(contactForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+      .then(function(r) {
+        if (r.ok) {
+          contactForm.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        }
+      })
+      .catch(function() {
+        alert('Error al enviar. Intentá de nuevo.');
+      });
+  });
+}
+
 // ══ FORMULARIO DE MONITOREO ══
 var monitorForm = document.getElementById('monitor-form');
 if (monitorForm) {
