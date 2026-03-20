@@ -135,14 +135,28 @@
 <section class="about" id="proyecto">
   <div>
     <div class="about-tabs">
-      <button class="tab-pill active">Sobre nosotros</button>
-      <button class="tab-pill">Misión</button>
-      <button class="tab-pill">Visión</button>
+      <button class="tab-pill active" data-tab="0">Sobre nosotros</button>
+      <button class="tab-pill" data-tab="1">Misión</button>
+      <button class="tab-pill" data-tab="2">Visión</button>
     </div>
-    <div class="about-eyebrow">Quiénes somos</div>
-    <h2 class="about-headline">Con años de trabajo en territorio, transformamos espacios abandonados en nodos ecológicos vivos.</h2>
-    <p class="about-body">Jóvenes por el Clima y Bosquear articulan participación comunitaria, criterios ecológicos y financiamiento privado para crear una red de Micro Parques en el Gran Buenos Aires. Cada intervención es rápida, replicable y de alto impacto ambiental y social.</p>
-    <a href="#fases" class="btn-dark">Conocer la metodología</a>
+    <div class="tab-panel" data-panel="0">
+      <div class="about-eyebrow">Quiénes somos</div>
+      <h2 class="about-headline">Con años de trabajo en territorio, transformamos espacios abandonados en nodos ecológicos vivos.</h2>
+      <p class="about-body">Jóvenes por el Clima y Bosquear articulan participación comunitaria, criterios ecológicos y financiamiento privado para crear una red de Micro Parques en el Gran Buenos Aires. Cada intervención es rápida, replicable y de alto impacto ambiental y social.</p>
+      <a href="#fases" class="btn-dark">Conocer la metodología</a>
+    </div>
+    <div class="tab-panel" data-panel="1" style="display:none">
+      <div class="about-eyebrow">Misión</div>
+      <h2 class="about-headline">Transformar espacios degradados en ecosistemas nativos vivos con impacto verificable.</h2>
+      <p class="about-body">Recuperamos microbasurales y espacios abandonados del Gran Buenos Aires convirtiéndolos en nodos ecológicos con vegetación nativa, generando biodiversidad real, reducción de temperatura y encuentro comunitario — financiados por empresas con programas RSE/ESG.</p>
+      <a href="#contacto" class="btn-dark">Ser parte</a>
+    </div>
+    <div class="tab-panel" data-panel="2" style="display:none">
+      <div class="about-eyebrow">Visión</div>
+      <h2 class="about-headline">Una red de 30+ micro parques formando corredores ecológicos urbanos en todo el GBA.</h2>
+      <p class="about-body">Imaginamos un Gran Buenos Aires donde cada barrio tenga acceso a un espacio verde nativo a menos de 10 minutos a pie — una red interconectada de ecosistemas verificables, replicables y sostenibles en el tiempo.</p>
+      <a href="#mapa" class="btn-dark">Ver el mapa</a>
+    </div>
     <div style="margin-top:20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
       <span class="refi-tag">⛓️ ReFi — Regenerative Finance</span>
       <span style="font-size:.75rem;color:#777">Impacto ambiental registrado mediante transacciones en red</span>
@@ -400,7 +414,7 @@
     </div>
     <div class="footer-col"><h4>Proyecto</h4><ul><li><a href="#proyecto">Sobre nosotros</a></li><li><a href="#vision">Visión</a></li><li><a href="#planificacion">Planificación</a></li><li><a href="#fases">Metodología</a></li><li><a href="#impacto">Impacto</a></li><li><a href="#mapa">Mapa de parques</a></li></ul></div>
     <div class="footer-col"><h4>Participar</h4><ul><li><a href="#contacto">Municipios</a></li><li><a href="#contacto">Empresas RSE</a></li><li><a href="#contacto">Comunidades</a></li><li><a href="#contacto">Voluntariado</a></li></ul></div>
-    <div class="footer-col"><h4>Recursos</h4><ul><li><a href="#">Manual operativo</a></li><li><a href="#">Lista de especies</a></li><li><a href="#">Informes de impacto</a></li><li><a href="#">Prensa</a></li></ul></div>
+    <div class="footer-col"><h4>Recursos</h4><ul><li><a href="#contacto">Manual operativo</a></li><li><a href="#vision">Lista de especies</a></li><li><a href="#impacto">Informes de impacto</a></li><li><a href="#contacto">Prensa</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 Red de Micro Parques — Jóvenes por el Clima + Bosquear</span>
@@ -411,7 +425,7 @@
 <div class="detail-modal" id="detail-modal"><div class="dm-card" id="dm-card"></div></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
-<a href="https://wa.me/5491167642321?text=Hola%21%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20el%20proyecto%20Micro%20Parques%20AMBA%20%F0%9F%8C%BF" target="_blank" id="wa-float" title="Escribinos por WhatsApp">
+<a href="https://wa.me/5491167642321?text=Hola%21%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20Red%20de%20Micro%20Parques%20%F0%9F%8C%BF" target="_blank" id="wa-float" title="Escribinos por WhatsApp">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.858L.054 23.446a.5.5 0 0 0 .612.612l5.588-1.479A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.52-5.181-1.427l-.361-.214-3.762.995.995-3.762-.214-.361A9.959 9.959 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
 </a>
 </body>
