@@ -272,8 +272,12 @@ document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el)
 // ══ TABS ══
 document.querySelectorAll('.tab-pill').forEach(function(btn) {
   btn.addEventListener('click', function() {
+    var tab = btn.getAttribute('data-tab');
     document.querySelectorAll('.tab-pill').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.style.display = 'none'; });
     btn.classList.add('active');
+    var panel = document.querySelector('.tab-panel[data-panel="' + tab + '"]');
+    if (panel) panel.style.display = 'block';
   });
 });
 
